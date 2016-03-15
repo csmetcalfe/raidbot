@@ -1,0 +1,11 @@
+{
+  "name": "raid-bot",
+  "description": "Slackbot to randomly pick a person to put on call",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "botkit": "0.0.10"
+  }
+}
