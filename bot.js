@@ -25,3 +25,10 @@ controller.hears(['draw', 'pick', 'next', 'select', 'choose'],'direct_message,di
 
   bot.reply(message, "Let's put " + onCallEngineerTag + " on bug duty today " + bugEmoji + " :hammer:");
 });
+
+
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.send('it is running\n');
+}).listen(process.env.PORT || 5000);
