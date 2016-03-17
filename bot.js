@@ -1,6 +1,11 @@
 var Botkit = require('botkit');
 var http = require('http');
 
+//Lets define a port we want to listen to
+const PORT = process.env.PORT || 8080;
+const ENGINEERS = ["abaker", "cmetcalfe", "cnguyen", "jbecker", "johnny", "mthompson"];
+const WEBHOOK_URL = 'https://hooks.slack.com/services/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';
+
 var controller = Botkit.slackbot({
   debug: false
 });
@@ -16,7 +21,6 @@ controller.hears('hello','direct_message,direct_mention,mention',function(bot,me
 });
 
 controller.hears(['draw', 'pick', 'next', 'select', 'choose'],'direct_message,direct_mention,mention',function(bot,message) {
-
   bugEmojis = [":ant:", ":beetle:", ":bug:", ":spider:"];
   var bugEmoji = bugEmojis[Math.floor(Math.random() * bugEmojis.length)];
 
@@ -24,13 +28,9 @@ controller.hears(['draw', 'pick', 'next', 'select', 'choose'],'direct_message,di
 });
 
 function selectRandomEngineer() {
-  engineers = ["abaker", "cmetcalfe", "cnguyen", "jbecker", "johnny", "mthompson"];
-  return engineers[Math.floor(Math.random() * engineers.length)];
+  return ENGINEERS[Math.floor(Math.random() * ENGINEERS.length)];
 }
 
-
-//Lets define a port we want to listen to
-const PORT = process.env.PORT || 8080;
 
 //We need a function which handles requests and send response
 function handleRequest(request, response){
