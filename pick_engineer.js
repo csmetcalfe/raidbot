@@ -13,7 +13,7 @@ var bot = controller.spawn({
 
 bot.sendWebhook({
   text: "<@" + picker.selectRandomEngineer() + "> is on bug duty today :bug: :hammer:",
-  channel: '#eng-bakery-alerts',
+  channel: '#eng-sfp',
 },function(err,res) {
   if (err) { }
 });
